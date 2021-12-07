@@ -31,3 +31,7 @@ Start time:
 Finish time: 
 
 Actual time needed to complete: 
+
+## Data Cycle/Stream
+
+![Data Cycle](./webrequestcycle.PNG)
