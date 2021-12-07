@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+// import Form from './Form.js';
 
 // https://us1.locationiq.com/v1/reverse.php?key=YOUR_ACCESS_TOKEN&lat=LATITUDE&lon=LONGITUDE&format=json
 
@@ -16,7 +17,7 @@ export default class App extends Component {
 
  
  
-  getlocation = async() => {
+getlocation = async() => {
 
     try {
     let result = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_API_KEY}&q=${this.state.queryCity}&format=json`)
@@ -39,8 +40,10 @@ handleSubmit = (event) => {
           <input type="text" placeholder="Enter City Name Here" name="city"/>
           <button type="submit">Explore!</button>
         </form>
-        {this.state.locationObject.display_name ? <p>{this.state.locationObject.display_name}</p> : <p>Search for a city.</p>}
+        {this.state.locationObject.display_name ? <p>{this.state.locationObject.display_name}, Earth <br></br> <br></br> Latitude: {this.state.locationObject.lat} Longitude: {this.state.locationObject.lon}</p> : <p>Search for a city.</p>}
+        <img src=""/>
         {this.state.error && <p>There was an error with your request.</p>}
+        {/* <Form /> */}
       </div>
     )
   }
