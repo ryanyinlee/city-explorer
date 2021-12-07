@@ -22,15 +22,24 @@
 
 ## Time Estimates
 
-Name of feature: 
 
-Estimate of time needed to complete: 
+Name of feature: Location and Longitude/Latitude.
 
-Start time: 
+As a user of City Explorer, I want to enter the name of a location so that I can see the exact latitude and longitude of that location.
 
-Finish time: 
+Estimate of time needed to complete: 3hrs
 
-Actual time needed to complete: 
+Actual time needed to complete: 6hrs
+
+Name of feature: Map
+
+Map: As a user, I want to see a map of the city so that I can see the layout of the area I want to explore.
+
+Estimate of time needed to complete: 1hr
+
+Actual time needed to complete: 45min
+
+
 
 ## Data Cycle/Stream
 
