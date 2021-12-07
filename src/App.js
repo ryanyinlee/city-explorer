@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Alert, Form, Card } from 'react-bootstrap';
+import Header from './Header.js';
+import Footer from './Footer.js';
 
-// https://us1.locationiq.com/v1/reverse.php?key=YOUR_ACCESS_TOKEN&lat=LATITUDE&lon=LONGITUDE&format=json
 
 export default class App extends Component {
 
   constructor(props) {
     super(props);
     this.state ={
-      queryCity:'',
+      qeryCuity:'',
       locationObject: {},
       error: false
     }
@@ -30,20 +31,25 @@ getlocation = async() => {
     }
   }
 
+
+
 handleSubmit = (event) => {
   event.preventDefault();
 
   this.setState({queryCity: event.target.city.value }, this.getlocation);
 }
 
+
+
   render() {
     return (
       <div>
+        <Header></Header>
         <Card style={{ width: '48rem' }}>
         <Card.Body>
         <Form onSubmit ={this.handleSubmit}><br></br>
           <input type="text" placeholder="Enter City Name Here" name="city"/>
-          {this.state.error && <Alert variant='warning'>There was an error with your request.</Alert>}
+          {this.state.error && <Alert variant="danger">There was an error with your request.</Alert>}
           <button type="submit">Explore!</button>
         </Form>
         <br></br>{this.state.locationObject.display_name ?  <p>{this.state.locationObject.display_name}, Earth <br></br> <br></br> Latitude: {this.state.locationObject.lat} Longitude: {this.state.locationObject.lon}</p> : <p>Search for a city.</p>}
@@ -53,6 +59,7 @@ handleSubmit = (event) => {
         </Card.Body>
         </Card>
        
+       <Footer></Footer>
         
       </div>
     )
