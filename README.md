@@ -30,6 +30,8 @@ Estimate of time needed to complete: 3hrs
 
 Actual time needed to complete: 6hrs
 
+---
+
 Name of feature: Map
 
 Map: As a user, I want to see a map of the city so that I can see the layout of the area I want to explore.
@@ -38,8 +40,25 @@ Estimate of time needed to complete: 1hr
 
 Actual time needed to complete: 45min
 
+---
+
+Name of feature: Weather
+
+As a user of City Explorer, I want to see weather info for the city I searched, so that I know how to pack for an upcoming trip.
+
+Estimate of time needed to complete: 6hr
+
+Start time: 3:02PM
+
+Finish time: 
+
+Actual time needed to complete:
 
 
-## Data Cycle/Stream
+## Data Cycle/Stream Lab 06
 
 ![Data Cycle](./webrequestcycle.PNG)
+
+## Data Cycle/Stream Lab 07
+
+![Data Cycle 2](./webrequestcyclelab07.PNG)
