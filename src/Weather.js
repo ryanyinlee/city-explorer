@@ -15,8 +15,17 @@ constructor(props) {
     // set it in state
     // render the list!
     weatherRequest = async() => {
-        const receivedWeather = await axios.get(`${process.env.REACT_APP_URL}/data/weather.json?name=test`);
-        this.setState({ weather: receivedWeather.data });
+        // Seattle, King County, USA
+        // ['Seattle', ' King County', ' USA'] extra space is ok
+        let city = this.state.locationObject.display_name.split(',')[0];
+        //let url = `${process.env.REACT_APP_URL}/weather?city_name=${city}`;
+        try {
+            let receivedWeather = await axios.get(`${process.env.REACT_APP_URL}/data/weather?city_name=${city}`);
+            this.setState({ weather: receivedWeather.data });
+        } catch (e) {
+            this.setState({ error: true });
+        }
+        
     }
 
     componentDidMount() {

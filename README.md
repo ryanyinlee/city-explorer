@@ -62,3 +62,7 @@ Actual time needed to complete:
 ## Data Cycle/Stream Lab 07
 
 ![Data Cycle 2](./webrequestcyclelab07.PNG)
+
+## Data Cycle/Stream Lab 08
+
+![Data Cycle 3](./lab08diagram.PNG)
