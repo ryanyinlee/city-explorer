@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Alert, Form, Card } from 'react-bootstrap';
 import Header from './Header.js';
 import Footer from './Footer.js';
+import Weather from './Weather.js';
 
 
 export default class App extends Component {
@@ -11,7 +12,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state ={
-      qeryCuity:'',
+      queryCity:'',
       locationObject: {},
       error: false
     }
@@ -53,9 +54,9 @@ handleSubmit = (event) => {
           <button type="submit">Explore!</button>
         </Form>
         <br></br>{this.state.locationObject.display_name ?  <p>{this.state.locationObject.display_name}, Earth <br></br> <br></br> Latitude: {this.state.locationObject.lat} Longitude: {this.state.locationObject.lon}</p> : <p>Search for a city.</p>}
-      
-        <Card.Img variant="bottom" width="450px" src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_API_KEY}&center=${this.state.locationObject.lat},${this.state.locationObject.lon}&zoom=10&size=400x400&format=png&maptype=roadmap&markers=icon:<icon>|<latitude>,<longitude>&markers=icon:<icon>|<latitude>,<longitude>`} alt="map"/>
         
+        <Card.Img variant="bottom" width="450px" src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_API_KEY}&center=${this.state.locationObject.lat},${this.state.locationObject.lon}&zoom=10&size=400x400&format=png&maptype=roadmap&markers=icon:<icon>|<latitude>,<longitude>&markers=icon:<icon>|<latitude>,<longitude>`} alt="map"/>
+       {/* {this.props.weather.length > 0 && <Weather weather ={this.props.weather} />} */}
         </Card.Body>
         </Card>
        
