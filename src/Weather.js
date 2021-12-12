@@ -1,43 +1,49 @@
 import React, { Component } from 'react'
-import axios from 'axios';
+import axios from 'axios'; // we import axios so we can use it
 
 export default class Weather extends Component {
 
-constructor(props) {
-    super(props);
-    this.state = {
-        weather: []
+    constructor(props) {
+        super(props);
+        this.state = {
+            weather: [],
+            longitude: '',
+            latitude: '',
+ 
+        }
     }
-}
-
-    // make a request using axios to server
-    // get back list
-    // set it in state
-    // render the list!
-    weatherRequest = async() => {
-        // Seattle, King County, USA
-        // ['Seattle', ' King County', ' USA'] extra space is ok
-        let city = this.state.locationObject.display_name.split(',')[0];
-        //let url = `${process.env.REACT_APP_URL}/weather?city_name=${city}`;
+    
+    weatherRequest = async () => {
         try {
-            let receivedWeather = await axios.get(`${process.env.REACT_APP_URL}/data/weather?city_name=${city}`);
-            this.setState({ weather: receivedWeather.data });
-        } catch (e) {
+            let receivedWeather = await axios.get(`${process.env.REACT_APP_URL}weather?lat=${this.props.latitude}&lon=${this.props.longitude}`);
+            console.log(receivedWeather.data);
+            this.setState({weather: receivedWeather.data });
+            // this.setState({ dateTime: receivedWeather[0].datetime });
+            // this.setState({ description: receivedWeather[0].description });
+           
+            // console.log("the weather should be this: " + this.weather.description);
+        } catch (error) {
             this.setState({ error: true });
         }
-        
     }
 
     componentDidMount() {
         this.weatherRequest();
+        this.setState({latitude: this.props.latitude});
+        this.setState({longitude: this.props.longitude});   
     }
- 
+
+
+
+
+
     render() {
         return (
             <div>
-                <h3>the gosh darn weather</h3>
+                <h3>the gosh darn weather is:</h3>
                 <ul>
-                {this.state.weather.length > 0 && this.state.weather.map(item => <li>{item}</li>)}
+
+                {this.state.weather.map(day => <li key={day.date}>{day.date}: {day.description}</li>)}
                 </ul>
             </div>
         )

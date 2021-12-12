@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
+import axios from 'axios';
 
 
 
@@ -18,17 +18,17 @@ export default class Movies extends Component {
 
 
 
-    movieRequest = async() => {
+    // movieRequest = async() => {
    
         
-        try {
-            let receivedMovies = await axios.get(`${process.env.REACT_APP_URL}/data/weather?city_name=${city}`);
-            this.setState({ movies: receivedMovies.data });
-        } catch (e) {
-            this.setState({ error: true });
-        }
+    //     try {
+    //         let receivedMovies = await axios.get(`${process.env.REACT_APP_URL}/data/weather?city_name=${city}`);
+    //         this.setState({ movies: receivedMovies.data });
+    //     } catch (e) {
+    //         this.setState({ error: true });
+    //     }
         
-    }
+    // }
 
 
     render() {
