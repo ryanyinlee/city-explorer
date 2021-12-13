@@ -14,10 +14,8 @@ export default class Movies extends Component {
 
 
     movieRequest = async() => {
-   
-        // ${this.props.queryCity}
-        try {                                       //localhost:3001/movies?city_name=seattle
-            let receivedMovies = await axios.get(`${process.env.REACT_APP_URL}movies?city_name=${this.props.queryCity}`);
+           try {     
+            let receivedMovies = await axios.get(`${process.env.REACT_APP_URL}/movies?city_name=${this.props.queryCity}`);
             console.log("querycity to search: " + this.props.queryCity);
             console.log("receivedMovies[0]" + receivedMovies.data );
             this.setState({ movies: receivedMovies.data });
@@ -47,3 +45,5 @@ export default class Movies extends Component {
         )
     }
 }
+
+// Edited here.
