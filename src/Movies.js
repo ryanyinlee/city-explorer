@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 
-
-
-
-
 export default class Movies extends Component {
 
     constructor(props) {
@@ -17,27 +13,36 @@ export default class Movies extends Component {
     
 
 
-
-    // movieRequest = async() => {
+    movieRequest = async() => {
    
+        // ${this.props.queryCity}
+        try {                                       //localhost:3001/movies?city_name=seattle
+            let receivedMovies = await axios.get(`${process.env.REACT_APP_URL}movies?city_name=${this.props.queryCity}`);
+            console.log("querycity to search: " + this.props.queryCity);
+            console.log("receivedMovies[0]" + receivedMovies.data );
+            this.setState({ movies: receivedMovies.data });
+            console.log("this.movies" + this.movies);
+        } catch (e) {
+            this.setState({ error: true });
+        }
         
-    //     try {
-    //         let receivedMovies = await axios.get(`${process.env.REACT_APP_URL}/data/weather?city_name=${city}`);
-    //         this.setState({ movies: receivedMovies.data });
-    //     } catch (e) {
-    //         this.setState({ error: true });
-    //     }
-        
-    // }
+    }
 
+
+    componentDidMount() {
+        this.movieRequest();
+}
 
     render() {
         return (
             <div>
-                <h3>{this.props.movie.title}</h3>
-                <img src={this.props.movie.image_url} alt={this.props.movie.overview}/>
-                <p>{this.props.movie.overview}</p>
+                <ul>
+                <h3>Famous Movies Set in {this.props.queryCity}</h3>                                                        
 
+                {this.state.movies.map(film => <li key={film.title}><h3>{film.title}</h3> <br></br> {film.overview} <br></br><img src={film.image_url} alt={film.title}/><br></br><br></br></li>)}      
+        
+                </ul>
+                
             </div>
         )
     }

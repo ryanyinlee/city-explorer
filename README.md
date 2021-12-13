@@ -50,19 +50,19 @@ Estimate of time needed to complete: 6hr
 
 Start time: 3:02PM
 
-Finish time: 
+Finish time: A week or so later.
 
-Actual time needed to complete:
+Actual time needed to complete: ???
 
 
 ## Data Cycle/Stream Lab 06
 
-![Data Cycle](./webrequestcycle.PNG)
+![Data Cycle](https://raw.githubusercontent.com/ryanyinlee/city-explorer/main/webrequestcycle.PNG)
 
 ## Data Cycle/Stream Lab 07
 
-![Data Cycle 2](./webrequestcyclelab07.PNG)
+![Data Cycle 2](https://raw.githubusercontent.com/ryanyinlee/city-explorer/main/webrequestcyclelab07.PNG)
 
 ## Data Cycle/Stream Lab 08
 
-![Data Cycle 3](./lab08diagram.PNG)
+![Data Cycle 3](https://raw.githubusercontent.com/ryanyinlee/city-explorer/main/lab08diagram.PNG)
