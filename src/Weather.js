@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import axios from 'axios'; // we import axios so we can use it
+import React, { Component } from 'react';
+import axios from 'axios'; 
+import WeatherDay from './WeatherDay.js';
 
 export default class Weather extends Component {
 
@@ -9,7 +10,7 @@ export default class Weather extends Component {
             weather: [],
             longitude: '',
             latitude: '',
- 
+
         }
     }
     
@@ -17,11 +18,13 @@ export default class Weather extends Component {
         try {
             let receivedWeather = await axios.get(`${process.env.REACT_APP_URL}/weather?lat=${this.props.latitude}&lon=${this.props.longitude}`);
             this.setState({weather: receivedWeather.data });
-         } catch (error) {
+            } catch (error) {
             this.setState({ error: true });
 
         }
     }
+
+    
 
     componentDidMount() {
         this.weatherRequest();
@@ -32,11 +35,14 @@ export default class Weather extends Component {
     render() {
         return (
             <div>
-                <h3>the gosh darn weather is:</h3>
-                <ul>
-
-                {this.state.weather.map(day => <li key={day.date}>{day.date}: {day.description}</li>)}
+                <h3>the gosh darn weather is gonna be:</h3>
+                    <ul>
+                    <WeatherDay                 
+                        weather = {this.state.weather}
+                    />             
                 </ul>
+                <br></br>
+                <br></br>
             </div>
         )
     }
