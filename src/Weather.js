@@ -41,3 +41,5 @@ export default class Weather extends Component {
         )
     }
 }
+
+//Edited here.

@@ -45,3 +45,5 @@ export default class Movies extends Component {
         )
     }
 }
+
+// Edited here.
