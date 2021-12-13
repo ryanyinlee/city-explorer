@@ -15,7 +15,7 @@ export default class Weather extends Component {
     
     weatherRequest = async () => {
         try {
-            let receivedWeather = await axios.get(`${process.env.REACT_APP_URL}weather?lat=${this.props.latitude}&lon=${this.props.longitude}`);
+            let receivedWeather = await axios.get(`${process.env.REACT_APP_URL}/weather?lat=${this.props.latitude}&lon=${this.props.longitude}`);
             // console.log(receivedWeather.data);
             this.setState({weather: receivedWeather.data });
             // this.setState({ dateTime: receivedWeather[0].datetime });
